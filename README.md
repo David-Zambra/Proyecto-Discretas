@@ -135,7 +135,7 @@ Materiales y Métodos.
   
   Clave privada  (d,n) :  (529,1159) 
 
-  Entonces, la expresión de cifrado está dada por  C=M49mod1159  y la expresión de descifrado está dada por  M=C529mod1159 
+  Entonces, la expresión de cifrado está dada por  C=M^(49)mod 1159  y la expresión de descifrado está dada por  M=C^(529)mod 1159 
 
 - Para una segunda versión del algoritmo RSA se eligieron números mayores, estos son los primos  p=131  y  q=211 . Por tanto, el producto  p⋅q  está dado por  n=27641 
 
@@ -175,7 +175,7 @@ Materiales y Métodos.
   
   Clave privada  (d,n) :  (11281,27641) 
 
-  Es decir, la expresión de cifrado está dada por  C=M121mod27641  y la expresión de descifrado está dada por  M=C11281mod27641 
+  Es decir, la expresión de cifrado está dada por  C=M^(121)mod 27641  y la expresión de descifrado está dada por  M=C^(11281)mod 27641 
 
 - Para una última evaluación del algoritmo, se tomaron valores de números primos aún más grandes para  p  y  q , siendo estos  p=2689  y  q=3517 . Luego, el producto  p⋅q  equivale a  n=9457213 
 
@@ -217,7 +217,7 @@ Materiales y Métodos.
   
   Clave privada  (d,n) :  (571871,9457213) 
 
-  La expresión de cifrado está dada por  C=M815135mod9457213  y la expresión de descifrado está dada por  M=C571871mod9457213 .
+  La expresión de cifrado está dada por  C=M^(815135)mod 9457213  y la expresión de descifrado está dada por  M=C^(571871)mod 9457213 .
   
 Resultados.
 
@@ -233,3 +233,15 @@ Conclusiones
 - Se oberva que, en este caso particular, a la computadora le toma unas  263  veces más tiempo descifrar un mensaje que cifrarlo. Lo anterior se puede atribuir a que  d , el inverso multiplicativo que forma parte de la clave privada, es mucho mayor que  e , el entero seleccionado para la clave pública.
 - Se tiene que, para el cifrado, el tiempo computacional no presenta mayor diferencia entre un  n=1159  y un  n=27641 , mientras que para un  n=9457213  aumenta unas  68521  veces con respecto al anterior. Por su parte, el descifrado toma muy poco tiempo para un  n=1159 ; para un  n=27641  aumenta unas  146  veces, y para un  n=9457213  aumenta unas  1126  veces respecto al anterior. En el siguiente gráfico se recogen los datos de tiempo comptuacional (en milisegundos) contra los valores de n empleados, tanto para el cifrado como para el descifrado.
 <img src="https://github.com/David-Zambra/Proyecto-Discretas/blob/main/imagen_2020-12-11_151708.png" width="1000" />
+
+Referencias
+
+- [1] GONZALEZ SOLARTE, Nancy Adriana, et al. Casos de estudio de cibercrimen en Colombia. Recuperado de: https://repository.unad.edu.co/bitstream/handle/10596/36606/nagonzalezso.pdf?sequence=1&isAllowed=y
+
+- [2] WIESMAIER, A. The State Of The Art In Algorithmic Encryption. 2006. Recuperado de: https://www.researchgate.net/publication/228981048_The_State_Of_The_Art_In_Algorithmic_Encryption
+
+- [3] ALVARADO PRADO, Edisson Esteban, et al. ESTUDIO DE EFICIENCIA Y EFICACIA DE LOS ALGORITMOS CRIPTOGRÁFICOS RSA, AES, IDEA y RC4 EN LA SEGURIDAD INFORMÁTICA.Recuperado de: https://repository.unad.edu.co/bitstream/handle/10596/35362/eealvaradop.pdf?sequence=1&isAllowed=y
+
+- [4] ABARCA PITA, José Florentino, et al. Fundamentos matemáticos del algoritmo RSA. 2018. Tesis de Maestría. Universidad Autónoma de Guerrero (México). Recuperado de: http://200.4.134.60/bitstream/handle/uagro/776/OK15158773_maestria.pdf?sequence=1&isAllowed=y
+
+- [5] JONES, Gareth A.; JONES, Josephine M. Elementary number theory. Springer Science & Business Media, 2012. Recuperado de: https://link.springer.com/book/10.1007%2F978-1-4471-0613-5

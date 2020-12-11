@@ -7,37 +7,37 @@ Introducción
 
   2. Estado del arte
 
-Existen diferentes formas o algoritmos de encriptar un mensaje, cada uno de ellos se usa de manera diferente dependiendo de lo que se desea enviar de un lugar a otro. Entre los principales se destacan dos formas de realizarlo, el cifrado simétrico y el asimétrico. [2]
+		Existen diferentes formas o algoritmos de encriptar un mensaje, cada uno de ellos se usa de manera diferente dependiendo de lo que se desea enviar de un lugar a otro. Entre los principales se destacan dos formas de realizarlo, el cifrado simétrico y el asimétrico. [2]
 
-  Por parte del cifrado simétrico, los esquemas de cifrado simétrico (clave secreta) utilizan la misma clave para el cifrado y el descifrado y, por lo general, tienen longitudes de clave predefinidas. Proporcionan una alta seguridad y un alto rendimiento, pero sufren el problema del intercambio de claves. Un grupo de entidades necesita intercambiar  n(n−1)2  claves diferentes a través de canales seguros.
+	  Por parte del cifrado simétrico, los esquemas de cifrado simétrico (clave secreta) utilizan la misma clave para el cifrado y el descifrado y, por lo general, tienen longitudes de clave predefinidas. Proporcionan una alta seguridad y un alto rendimiento, pero sufren el problema del intercambio de claves. Un grupo de entidades necesita intercambiar  n(n−1)2  claves diferentes a través de canales seguros.
 
-  Por otro lado, en el sifrado asimétrico, los esquemas de cifrado asimétrico (clave pública) utilizan diferentes claves para el cifrado y el descifrado, y normalmente tienen longitudes de clave arbitrarias. Es importante que sea prácticamente imposible calcular la clave de descifrado a partir de la clave de cifrado. Esto reduce el número de pares de claves diferentes en un grupo de  n  entidades a  n . Los algoritmos de clave pública tienen matemáticas complejas y necesitan claves muy largas. Debido a esto, la criptografía de clave pública es mucho más lenta que la criptografía de clave secreta.
+	  Por otro lado, en el sifrado asimétrico, los esquemas de cifrado asimétrico (clave pública) utilizan diferentes claves para el cifrado y el descifrado, y normalmente tienen longitudes de clave arbitrarias. Es importante que sea prácticamente imposible calcular la clave de descifrado a partir de la clave de cifrado. Esto reduce el número de pares de claves diferentes en un grupo de  n  entidades a  n . Los algoritmos de clave pública tienen matemáticas complejas y necesitan claves muy largas. Debido a esto, la criptografía de clave pública es mucho más lenta que la criptografía de clave secreta.
 
-  Uno de los algoritmos que se considera bastante seguro dentro de este último grupo es el llamado RSA. Además, al tratarse de uno de los cifrados más populares en la actualidad, ya ha sido abordado mútiples veces en estudios que buscan determinar su eficiencia y su seguridad, siendo comparado con otros algoritmos como AES, IDEA Y RC4. Como conclusión de dichos estudios se obtuvo que el RSA contaba con las mejores características para catalogarse como un buen sistema de cifrado, si bien se recomienda a usar claves grandes y, por tanto, consume mayor tiempo. [3]
+	  Uno de los algoritmos que se considera bastante seguro dentro de este último grupo es el llamado RSA. Además, al tratarse de uno de los cifrados más populares en la actualidad, ya ha sido abordado mútiples veces en estudios que buscan determinar su eficiencia y su seguridad, siendo comparado con otros algoritmos como AES, IDEA Y RC4. Como conclusión de dichos estudios se obtuvo que el RSA contaba con las mejores características para catalogarse como un buen sistema de cifrado, si bien se recomienda a usar claves grandes y, por tanto, consume mayor tiempo. [3]
 
-  A continuación se realizará una implementación de este algoritmo, aplicando nociones de teoría de números.
+	  A continuación se realizará una implementación de este algoritmo, aplicando nociones de teoría de números.
   
 Materiales y Métodos.
 
   1. Datos utilizados.
 
-  Los datos que se utilzan para este proyecto consisten de cadenas de texto que serán cifradas empleando un algoritmo RSA y dos números primos seleccionados al azar, los cuales se emplearán en la generación de las claves.
+	  Los datos que se utilzan para este proyecto consisten de cadenas de texto que serán cifradas empleando un algoritmo RSA y dos números primos seleccionados al azar, los cuales se emplearán en la generación de las claves.
 
   2. Descripción matemática de los métodos.
 
-  2.1. Números primos relativos y algoritmo de Euclides: Un número primo es aquel que tiene como únicos divisores al  1  y a sí mismo. Luego, se dice que dos números son primos relativos, o coprimos, si no tienen factores primos en común. Es decir, si no comparten otro divisor diferente de  1 .
+	  2.1. Números primos relativos y algoritmo de Euclides: Un número primo es aquel que tiene como únicos divisores al  1  y a sí mismo. Luego, se dice que dos números son primos relativos, o coprimos, si no tienen factores primos en común. Es decir, si no comparten otro divisor diferente de  1 .
 
-  El algoritmo de Euclides, por su parte, es un procedimiento paso a paso en el que se busca dar con el máximo común divisor de dos números. Se escribe al mayor de los números como el producto entre el menor y el cociente de ambos, más el residuo de la división. Luego, dicho cociente se escribe de la misma forma: este tomará el rol de "número mayor" y el residuo tomará el rol de "número menor" para ese caso. Se continúa así hasta que el residuo sea cero, de manera que el penúltimo residuo corresponderá con el máximo común divisor. Es decir:
+	  El algoritmo de Euclides, por su parte, es un procedimiento paso a paso en el que se busca dar con el máximo común divisor de dos números. Se escribe al mayor de los números como el producto entre el menor y el cociente de ambos, más el residuo de la división. Luego, dicho cociente se escribe de la misma forma: este tomará el rol de "número mayor" y el residuo tomará el rol de "número menor" para ese caso. Se continúa así hasta que el residuo sea cero, de manera que el penúltimo residuo corresponderá con el máximo común divisor. Es decir:
 
-a=q1b+r1 
-b=q2r1+r2 
-r1=q3r2+r3 
-...
-ri−1=qi+1ri+0 
+		a=q1b+r1 
+		b=q2r1+r2 
+		r1=q3r2+r3 
+		...
+		ri−1=qi+1ri+0 
 
-  donde  m  puede tomar distintos valores entre los enteros (ya que el algoritmo puede terminar en cualquier momento) y  ri  es el máximo común divisor de los números  a  y  b . [4]
+	  donde  m  puede tomar distintos valores entre los enteros (ya que el algoritmo puede terminar en cualquier momento) y  ri  es el máximo común divisor de los números  a  y  b . [4]
 
-  Este algoritmo puede ser útil para determinar si dos números son primos relativos, pues se dará el caso cuando el máximo común divisor sea igual a  1 .
+  	Este algoritmo puede ser útil para determinar si dos números son primos relativos, pues se dará el caso cuando el máximo común divisor sea igual a  1 .
 
   2.2. Función  ϕ  de Euler y Teorema de Euler: Para  n>1 , se define la función  ϕ(n)  como el número de enteros positivos menores o iguales que  n , que son primos relativos con  n . Se tiene, por tanto, que si  n  es un número primo, como sus únicos divisores serán  1  y él mismo, todos los enteros menores a  n  serán primos relativos de  n .
 

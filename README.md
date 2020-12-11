@@ -69,9 +69,9 @@ Materiales y Métodos.
 
   3. Algoritmos.
 
-  	El algoritmo a utilizar (RSA) consiste de los siguientes pasos [4]:
+		El algoritmo a utilizar (RSA) consiste de los siguientes pasos [4]:
 
-  	**3.1. Generación de clave pública y privada.**
+		**3.1. Generación de clave pública y privada.**
 
   - Se eligen dos números primos  p  y  q . Luego, se calcula un valor  n  dado por el producto entre ambos; es decir,  n=p⋅q .
 
@@ -83,7 +83,7 @@ Materiales y Métodos.
 
   - La salida estará conformada de: la clave pública que estará dada por  (e,n) , y la clave privada dada por  (d,n) .
 
-  **3.2. Algoritmo de cifrado**
+  	**3.2. Algoritmo de cifrado**
 
   - El mensaje en forma de texto se convierte en una lista de números utilizando el código ASCII. Esta constituye la entrada, junto con la clave pública  (e,n) .
 
@@ -91,7 +91,7 @@ Materiales y Métodos.
 
   - Se retorna la lista de números cifrados.
 
-  **3.3. Algoritmo de descifrado**
+  	**3.3. Algoritmo de descifrado**
 
   - Entra una lista de números cifrados junto con la clave privada  (d,n) .
 

@@ -29,15 +29,19 @@ Materiales y Métodos.
 
 	  El algoritmo de Euclides, por su parte, es un procedimiento paso a paso en el que se busca dar con el máximo común divisor de dos números. Se escribe al mayor de los números como el producto entre el menor y el cociente de ambos, más el residuo de la división. Luego, dicho cociente se escribe de la misma forma: este tomará el rol de "número mayor" y el residuo tomará el rol de "número menor" para ese caso. Se continúa así hasta que el residuo sea cero, de manera que el penúltimo residuo corresponderá con el máximo común divisor. Es decir:
 
-		a=q1b+r1 
-		b=q2r1+r2 
-		r1=q3r2+r3 
-		...
-		ri−1=qi+1ri+0 
+      a=q1b+r1
 
-	  donde  m  puede tomar distintos valores entre los enteros (ya que el algoritmo puede terminar en cualquier momento) y  ri  es el máximo común divisor de los números  a  y  b . [4]
+      b=q2r1+r2
 
-  	Este algoritmo puede ser útil para determinar si dos números son primos relativos, pues se dará el caso cuando el máximo común divisor sea igual a  1 .
+      r1=q3r2+r3
+
+      ...
+
+      ri−1=qi+1ri+0 
+
+      donde  m  puede tomar distintos valores entre los enteros (ya que el algoritmo puede terminar en cualquier momento) y  ri  es el máximo común divisor de los números  a  y  b . [4]
+
+      Este algoritmo puede ser útil para determinar si dos números son primos relativos, pues se dará el caso cuando el máximo común divisor sea igual a  1 .
 
   2.2. Función  ϕ  de Euler y Teorema de Euler: Para  n>1 , se define la función  ϕ(n)  como el número de enteros positivos menores o iguales que  n , que son primos relativos con  n . Se tiene, por tanto, que si  n  es un número primo, como sus únicos divisores serán  1  y él mismo, todos los enteros menores a  n  serán primos relativos de  n .
 

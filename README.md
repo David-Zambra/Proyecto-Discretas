@@ -73,31 +73,31 @@ Materiales y Métodos.
 
 		**3.1. Generación de clave pública y privada.**
 
-  - Se eligen dos números primos  p  y  q . Luego, se calcula un valor  n  dado por el producto entre ambos; es decir,  n=p⋅q .
+	  - Se eligen dos números primos  p  y  q . Luego, se calcula un valor  n  dado por el producto entre ambos; es decir,  n=p⋅q .
 
-  - Se aplica la función  ϕ  de Euler para el  n  calculado, que al resultar de un producto entre dos primos se cumple que:  ϕ(n)=(p−1)(q−1) .
+	  - Se aplica la función  ϕ  de Euler para el  n  calculado, que al resultar de un producto entre dos primos se cumple que:  ϕ(n)=(p−1)(q−1) .
 
-  - Se escoge un entero  e  mayor a  1  y menor a la función  ϕ(n)  calculada, de tal manera que  e  sea primo relativo de  ϕ(n) .
+	  - Se escoge un entero  e  mayor a  1  y menor a la función  ϕ(n)  calculada, de tal manera que  e  sea primo relativo de  ϕ(n) .
 
-  - Se encuentra un inverso multiplicativo de  e  módulo  ϕ(n) , el cual también debe estar entre  1  y  ϕ(n) . Este se denota como  d .
+	  - Se encuentra un inverso multiplicativo de  e  módulo  ϕ(n) , el cual también debe estar entre  1  y  ϕ(n) . Este se denota como  d .
 
-  - La salida estará conformada de: la clave pública que estará dada por  (e,n) , y la clave privada dada por  (d,n) .
+	  - La salida estará conformada de: la clave pública que estará dada por  (e,n) , y la clave privada dada por  (d,n) .
 
-  	**3.2. Algoritmo de cifrado**
+		**3.2. Algoritmo de cifrado**
 
-  - El mensaje en forma de texto se convierte en una lista de números utilizando el código ASCII. Esta constituye la entrada, junto con la clave pública  (e,n) .
+	  - El mensaje en forma de texto se convierte en una lista de números utilizando el código ASCII. Esta constituye la entrada, junto con la clave pública  (e,n) .
 
-  - Para cada número  M  se calcula, utilizando la clave, un número  C  tal que  C=Memodn .
+	  - Para cada número  M  se calcula, utilizando la clave, un número  C  tal que  C=Memodn .
 
-  - Se retorna la lista de números cifrados.
+	  - Se retorna la lista de números cifrados.
 
-  	**3.3. Algoritmo de descifrado**
+		**3.3. Algoritmo de descifrado**
 
-  - Entra una lista de números cifrados junto con la clave privada  (d,n) .
+	  - Entra una lista de números cifrados junto con la clave privada  (d,n) .
 
-  - Para cada número  C  se calcula, utilizando la clave, un número  M  tal que  M=Cdmodn .
+	  - Para cada número  C  se calcula, utilizando la clave, un número  M  tal que  M=Cdmodn .
 
-  - La lista de números se convierte en un mensaje de texto utilizando el código ASCII, y este es el resultado que se retorna.
+	  - La lista de números se convierte en un mensaje de texto utilizando el código ASCII, y este es el resultado que se retorna.
 
   4. Configuración experimental.
 
@@ -108,7 +108,9 @@ Materiales y Métodos.
   Debe escogerse un número para la clave privada, el cual debe ser coprimo con  ϕ(n)  y menor a este valor. Se escoge  e=49 , pues se puede evidenciar:
 
   1080=22(49)+2 
+  
   49=24(2)+1 
+  
   2=2(1)+0 
 
   Esto quiere decir que, al aplicar el algoritmo de Euclides, el máximo común divisor entre  49  y  1080  es  1 , comprobando así que son primos relativos.
@@ -116,11 +118,13 @@ Materiales y Métodos.
   El siguiente paso consiste en hallar un inverso multiplicativo de  49  módulo  1080 . Para ello, puede realizarse sustitución inversa con el fin de resolver la identidad de Bézout  49v+1080w=1 , utilizando el algoritmo anterior. De este, cada expresión (sin considerar la última) puede reformularse como:
 
   1=49−24(2) 
+  
   2=1080−22(49) 
 
   Reemplazando la segunda en la primera se llega a:
 
   1=49−24(1080−22(49)) 
+  
   1=529(49)−24(1080) 
 
   Ya resuleta la identidad, se tiene el inverso multiplicativo  d=529 , porque  49(529)≡1(mod1080) 
@@ -128,6 +132,7 @@ Materiales y Métodos.
   Al conocer todos los valores  e ,  d  y  n , se definen las claves:
 
   Clave pública  (e,n) :  (49,1159) 
+  
   Clave privada  (d,n) :  (529,1159) 
 
   Entonces, la expresión de cifrado está dada por  C=M49mod1159  y la expresión de descifrado está dada por  M=C529mod1159 
@@ -139,13 +144,21 @@ Materiales y Métodos.
   Como valor de  e , puede tomarse  e=121 , el cual está dentro del rango y cumple con ser primo relativo de  ϕ(n) , tal como se observa al aplicar el algoritmo de Euclides:
 
   27300=225(121)+75 
+  
   121=1(75)+46 
+  
   75=1(46)+29 
+  
   46=1(29)+17 
+  
   29=1(17)+12 
-  17=1(12)+5 
+  
+  17=1(12)+5
+  
   12=2(5)+2 
+  
   5=2(2)+1 
+  
   2=2(1)+0 
 
   Se tiene que su máximo común divisor es 1; por ende, son coprimos.
@@ -159,6 +172,7 @@ Materiales y Métodos.
   Luego, las claves son:
 
   Clave pública  (e,n) :  (121,27641) 
+  
   Clave privada  (d,n) :  (11281,27641) 
 
   Es decir, la expresión de cifrado está dada por  C=M121mod27641  y la expresión de descifrado está dada por  M=C11281mod27641 
@@ -170,24 +184,37 @@ Materiales y Métodos.
   En este caso, al buscar un valor  e  tal que  1<e<ϕ(n) , y que sea coprimo con este último, se elige  e=815135 . Puede comprobarse la condición calculando el máximo común divisor mediante el algoritmo de Euclides:
 
   9451008=11(815135)+484523 
+  
   815135=1(484523)+330612 
+  
   484523=1(330612)+153911 
+  
   330612=2(153911)+22790 
+  
   153911=6(22790)+17171 
+  
   22790=1(17171)+5619 
+  
   17171=3(5619)+314 
+  
   5619=17(314)+281 
+  
   314=1(281)+33 
+  
   281=8(33)+17 
+  
   33=1(17)+16 
+  
   17=1(16)+1 
+  
   16=16(1)+0 
 
   Es así que se tiene un inverso multiplicativo  d=571871 , pues resolviendo la identidad de Bézout  815135v+9451008w=1 , se tiene que los valores  v  y  w  están dados por la expresión  1=571871(815135)−49323(9451008) 
 
   A continuación se describen las claves y expresiones generadas:
 
-  Clave pública  (e,n) :  (815135,9457213) 
+  Clave pública  (e,n) :  (815135,9457213)
+  
   Clave privada  (d,n) :  (571871,9457213) 
 
   La expresión de cifrado está dada por  C=M815135mod9457213  y la expresión de descifrado está dada por  M=C571871mod9457213 .

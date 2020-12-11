@@ -25,7 +25,7 @@ Materiales y Métodos.
 
   2. Descripción matemática de los métodos.
 
-	  2.1. Números primos relativos y algoritmo de Euclides: Un número primo es aquel que tiene como únicos divisores al  1  y a sí mismo. Luego, se dice que dos números son primos relativos, o coprimos, si no tienen factores primos en común. Es decir, si no comparten otro divisor diferente de  1 .
+	  **2.1. Números primos relativos y algoritmo de Euclides:** Un número primo es aquel que tiene como únicos divisores al  1  y a sí mismo. Luego, se dice que dos números son primos relativos, o coprimos, si no tienen factores primos en común. Es decir, si no comparten otro divisor diferente de  1 .
 
 	  El algoritmo de Euclides, por su parte, es un procedimiento paso a paso en el que se busca dar con el máximo común divisor de dos números. Se escribe al mayor de los números como el producto entre el menor y el cociente de ambos, más el residuo de la división. Luego, dicho cociente se escribe de la misma forma: este tomará el rol de "número mayor" y el residuo tomará el rol de "número menor" para ese caso. Se continúa así hasta que el residuo sea cero, de manera que el penúltimo residuo corresponderá con el máximo común divisor. Es decir:
 
@@ -43,33 +43,35 @@ Materiales y Métodos.
 
       Este algoritmo puede ser útil para determinar si dos números son primos relativos, pues se dará el caso cuando el máximo común divisor sea igual a  1 .
 
-  2.2. Función  ϕ  de Euler y Teorema de Euler: Para  n>1 , se define la función  ϕ(n)  como el número de enteros positivos menores o iguales que  n , que son primos relativos con  n . Se tiene, por tanto, que si  n  es un número primo, como sus únicos divisores serán  1  y él mismo, todos los enteros menores a  n  serán primos relativos de  n .
+  	**2.2. Función  ϕ  de Euler y Teorema de Euler:** Para  n>1 , se define la función  ϕ(n)  como el número de enteros positivos menores o iguales que  n , que son primos relativos con  n . Se tiene, por tanto, que si  n  es un número primo, como sus únicos divisores serán  1  y él mismo, todos los enteros menores a  n  serán primos relativos de  n .
 
-  En síntesis: si  n  es primo,  ϕ(n)=n−1 
+  	En síntesis: si  n  es primo,  ϕ(n)=n−1 
 
-  Para continuar, primero se debe definir qué es una congruencia. Sea  m  un entero positivo y  a,b  dos números enteros, se dice que  a  y  b  son congruentes módulo  m  si el residuo que resulta de dividir  a  entre  m  es el mismo que resulta de dividir  b  entre  m . Esto se denota por:
+  	Para continuar, primero se debe definir qué es una congruencia. Sea  m  un entero positivo y  a,b  dos números enteros, se dice que  a  y  b  son congruentes módulo  m  si el residuo que resulta de dividir  a  entre  m  es el mismo que resulta de dividir  b  entre  m . Esto se denota por:
 
-  a≡b(modm) 
+  	a≡b(modm) 
 
-  El teorema de Euler satisface que, si  n  es un entero positivo y  a  es un primo relativo de  n , entonces  aϕ(n)≡1(modn) . [4] Este teorema es de gran utilidad para la teoría, ya que de ahí se obtiene el pequeño teorema de Fermat, por ejemplo; y también para la práctica, pues de aquí parte el cifrado empleado en el algoritmo RSA.
+  	El teorema de Euler satisface que, si  n  es un entero positivo y  a  es un primo relativo de  n , entonces  aϕ(n)≡1(modn) . [4] Este teorema es de gran utilidad para la teoría, ya que de ahí se obtiene el pequeño teorema de Fermat, por ejemplo; y también para la práctica, pues de aquí parte el cifrado empleado en el algoritmo RSA.
 
-  2.3. Inversos multiplicativos e identidad de Bézout: El inverso multiplicativo de  a  módulo  n  es un entero  v  tal que  av≡1(modn) . Para que este valor  v  exista, debe cumplirse que  a  y  n  sean coprimos, pues en caso contrario existirá un factor común que impida la congruencia.
+  	**2.3. Inversos multiplicativos e identidad de Bézout:** El inverso multiplicativo de  a  módulo  n  es un entero  v  tal que  av≡1(modn) . Para que este valor  v  exista, debe cumplirse que  a  y  n  sean coprimos, pues en caso contrario existirá un factor común que impida la congruencia.
 
-  El cálculo de estos inversos suele realizarse mediante la identidad de Bézout. Esta expresa que si  a  y  b  son enteros, siendo  d  su máximo común divisor, existen dos enteros  v  y  w  tales que  av+bw=d .
+  	El cálculo de estos inversos suele realizarse mediante la identidad de Bézout. Esta expresa que si  a  y  b  son enteros, siendo  d  su máximo común divisor, existen dos enteros  v  y  w  tales que  av+bw=d .
 
-  Luego, se tiene que el entero  v  es el inverso multiplicativo de  a  módulo  b  si estos son primos relativos, porque:
+  	Luego, se tiene que el entero  v  es el inverso multiplicativo de  a  módulo  b  si estos son primos relativos, porque:
 
-av+bw=1 
-av=1−bw 
-av≡1(modb) 
+		av+bw=1
 
-  De manera que se puede emplear sustitución inversa del algoritmo de euclides para llegar a la respuesta. [5]
+		av=1−bw
+
+		av≡1(modb) 
+
+  	De manera que se puede emplear sustitución inversa del algoritmo de euclides para llegar a la respuesta. [5]
 
   3. Algoritmos.
 
-  El algoritmo a utilizar (RSA) consiste de los siguientes pasos [4]:
+  	El algoritmo a utilizar (RSA) consiste de los siguientes pasos [4]:
 
-  3.1. Generación de clave pública y privada.
+  	**3.1. Generación de clave pública y privada.**
 
   - Se eligen dos números primos  p  y  q . Luego, se calcula un valor  n  dado por el producto entre ambos; es decir,  n=p⋅q .
 
@@ -81,7 +83,7 @@ av≡1(modb)
 
   - La salida estará conformada de: la clave pública que estará dada por  (e,n) , y la clave privada dada por  (d,n) .
 
-  3.2. Algoritmo de cifrado
+  **3.2. Algoritmo de cifrado**
 
   - El mensaje en forma de texto se convierte en una lista de números utilizando el código ASCII. Esta constituye la entrada, junto con la clave pública  (e,n) .
 
@@ -89,7 +91,7 @@ av≡1(modb)
 
   - Se retorna la lista de números cifrados.
 
-  3.3. Algoritmo de descifrado
+  **3.3. Algoritmo de descifrado**
 
   - Entra una lista de números cifrados junto con la clave privada  (d,n) .
 

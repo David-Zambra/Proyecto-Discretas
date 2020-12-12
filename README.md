@@ -1,4 +1,4 @@
-# Proyecto Discretas
+# Proyecto Matemáticas Discretas 2020-II: Implementación de Algoritmo RSA.
 Introducción
 
   1. Problema a resolver

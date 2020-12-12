@@ -1,4 +1,4 @@
-# Proyecto Discretas
+# Proyecto Matemáticas Discretas 2020-II: Implementación de Algoritmo RSA.
 Introducción
 
   1. Problema a resolver
@@ -223,7 +223,7 @@ Resultados.
 
 - Para los bloques de código, en primer lugar, se escribe uno que permita generar las claves. De esta manera, el usuario puede utilizar su propia combinación numérica sin tener que recurrir a alguna preexistente, o bien a realizar cálculos como los presentados arriba. En segundo lugar se escribe el código para cifrado y descrifrado.
 
-  En la salida de cada código se dejan los resultados de las pruebas realizadas para evaluar esta implementación del algoritmo RSA. Se utilizaron los valores de los tres pares de claves ya encontrados en la configuración experimental, y el mensaje para todos los casos es: "Universidad Nacional de Colombia". Con estos datos se mide el tiempo computacional empleado para el cifrado y el descifrado en cada caso; de manera posterior, se comparan los resultados obtenidos.
+  Se adjunta el jupyter notebook, donde se dejan los resultados de las pruebas realizadas para evaluar esta implementación del algoritmo RSA en la salida de cada código. Se utilizaron los valores de los tres pares de claves ya encontrados en la configuración experimental, y el mensaje para todos los casos es: "Universidad Nacional de Colombia". Con estos datos se mide el tiempo computacional empleado para el cifrado y el descifrado en cada caso; de manera posterior, se comparan los resultados obtenidos.
   
 - Se tiene que, para el cifrado, el tiempo computacional no presenta mayor diferencia entre un  n=1159  y un  n=27641 , mientras que para un  n=9457213  aumenta unas  68521  veces con respecto al anterior. Por su parte, el descifrado toma muy poco tiempo para un  n=1159 ; para un  n=27641  aumenta unas  146  veces, y para un  n=9457213  aumenta unas  1126  veces respecto al anterior. En el siguiente gráfico se recogen los datos de tiempo comptuacional (en milisegundos) contra los valores de n empleados, tanto para el cifrado como para el descifrado.
 <img src="https://github.com/David-Zambra/Proyecto-Discretas/blob/main/Imagénes/imagen_2020-12-11_155549.png" width="1000" />
